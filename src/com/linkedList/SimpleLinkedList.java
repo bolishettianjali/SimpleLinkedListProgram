@@ -11,9 +11,10 @@ public class SimpleLinkedList {
     /**
      * Method is to create, initialize and Link the new Node
      * object with previous Node object.
+     * @param data
      */
     public void add(int data) {
-        Node node = new Node(data);//50
+        Node node = new Node(data);
 
         if (head == null) {
             head = node;
@@ -24,14 +25,30 @@ public class SimpleLinkedList {
     }
 
     /**
+     * Method is used to add Node object at first.
+     * @param data
+     */
+    public void addFirst(int data) {
+        Node node = new Node(data);
+
+        if (head != null) {
+            node.nextNode = head;
+        }
+        head = node;
+    }
+
+    /**
      * Method to display all the data in Node objects
      */
     public void display() {
-        Node temp = head;
-
-        while (temp != null) {
-            System.out.println(temp.data);
-            temp = temp.nextNode;
+        Node node = head;
+        if(head == null) {
+            System.out.println("List is Empty");
+        } else {
+            while (node != null) {
+                System.out.println(node.data);
+                node = node.nextNode;
+            }
         }
     }
 }
