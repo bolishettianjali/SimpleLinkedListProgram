@@ -120,7 +120,7 @@ public class SimpleLinkedList {
     public boolean contains(int data) {
         Node node = head;
         if (isEmpty()) {
-            System.out.println("List is empty, Deletion can't be done");
+            System.out.println("List is empty.");
         } else {
             while (node != null) {
                 if (node.data == data) {
@@ -130,6 +130,28 @@ public class SimpleLinkedList {
             }
         }
         return false;
+    }
+
+    /**
+     * This method is used to insert the data after the specified element in list.
+     *
+     * @param data
+     * @param dataToBeAdd
+     */
+    public void insertAfter(int data, int dataToBeAdd) {
+        Node node = head;
+        if (isEmpty()) {
+            System.out.println("List is empty.");
+        } else if (!contains(data)) {
+            System.out.println("No Matches found");
+        } else {
+            for (int i = 0; i < size; i++) {
+                if (data == node.data) {
+                    insertAt(i+1, dataToBeAdd);
+                }
+                node = node.nextNode;
+            }
+        }
     }
 
     public boolean isEmpty() {
