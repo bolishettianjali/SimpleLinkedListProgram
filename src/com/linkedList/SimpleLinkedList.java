@@ -7,7 +7,7 @@ public class SimpleLinkedList {
      * initialised Node objects.
      */
     Node head, tail;
-    int size;
+    private int size;
 
     /**
      * Method is to create, initialize and Link the new Node
@@ -67,6 +67,7 @@ public class SimpleLinkedList {
                 if (i == index) {
                     node.nextNode = temp;
                     prev.nextNode = node;
+                    size++;
                     break;
                 }
                 prev = temp;
@@ -147,16 +148,56 @@ public class SimpleLinkedList {
         } else {
             for (int i = 0; i < size; i++) {
                 if (data == node.data) {
-                    insertAt(i+1, dataToBeAdd);
+                    insertAt(i + 1, dataToBeAdd);
                 }
                 node = node.nextNode;
             }
         }
     }
 
+    /**
+     * This method removes the specified element from the list.
+     *
+     * @param data
+     */
+    public void remove(int data) {
+        Node node = head;
+        Node prevNode = head;
+        if (isEmpty()) {
+            System.out.println("List is empty.");
+        } else if (!contains(data)) {
+            System.out.println("No Matches found");
+        } else if (head.data == data) {
+            pop();
+        } else {
+            while (node != null) {
+                if (node.data == data) {
+                    prevNode.nextNode = node.nextNode;
+                    size--;
+                    break;
+                }
+                prevNode = node;
+                node = node.nextNode;
+            }
+        }
+    }
+
+    /**
+     * This method will return true if list is empty or else false.
+     *
+     * @return
+     */
     public boolean isEmpty() {
-        if (head == null) return true;
-        return false;
+        return head == null;
+    }
+
+    /**
+     * this method is to return size of the LinkedList.
+     *
+     * @return
+     */
+    public int size() {
+        return size;
     }
 
     /**
