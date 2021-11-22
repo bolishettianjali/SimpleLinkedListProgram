@@ -18,7 +18,7 @@ public class SimpleLinkedList {
     public void add(int data) {
         Node node = new Node(data);
 
-        if (head == null) {
+        if (isEmpty()) {
             head = node;
         } else {
             tail.nextNode = node;
@@ -35,7 +35,7 @@ public class SimpleLinkedList {
     public void addFirst(int data) {
         Node node = new Node(data);
 
-        if (head != null) {
+        if (!isEmpty()) {
             node.nextNode = head;
         }
         head = node;
@@ -54,7 +54,7 @@ public class SimpleLinkedList {
         Node prev = temp;
         Node node = new Node(data);
 
-        if (temp == null) {
+        if (isEmpty()) {
             System.out.println("List is Empty can't insert data in specified position");
         } else if (index > size || index < 0) {
             System.out.println("Insertion can not be done at specified position: " + index);
@@ -73,6 +73,23 @@ public class SimpleLinkedList {
                 temp = temp.nextNode;
             }
         }
+    }
+
+    /**
+     * This method is to delete the first element in the list
+     * It replace the first Node object with second Node object in head.
+     */
+    public void pop() {
+        if (isEmpty()) {
+            System.out.println("List is empty, Deletion can't be done");
+        } else {
+            head = head.nextNode;
+        }
+    }
+
+    public boolean isEmpty() {
+        if (head == null) return true;
+        return false;
     }
 
     /**
