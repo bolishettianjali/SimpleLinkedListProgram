@@ -84,6 +84,29 @@ public class SimpleLinkedList {
             System.out.println("List is empty, Deletion can't be done");
         } else {
             head = head.nextNode;
+            size--;
+        }
+    }
+
+    /**
+     * This method is used to remove the last element in the List.
+     */
+    public void popLast() {
+        Node node = head;
+
+        if (isEmpty()) {
+            System.out.println("List is empty, Deletion can't be done");
+        } else {
+            if (size == 1) {
+                head = tail = null;
+            } else {
+                for (int i = 2; i < size; i++) {
+                    node = node.nextNode;
+                }
+                node.nextNode = null;
+                tail = node;
+            }
+            size--;
         }
     }
 
