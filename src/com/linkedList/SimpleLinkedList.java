@@ -110,6 +110,28 @@ public class SimpleLinkedList {
         }
     }
 
+    /**
+     * This method is used to check weather the specified element is present or not in LinkedList.
+     * If element is present then returns true or else returns false.
+     *
+     * @param data
+     * @return
+     */
+    public boolean contains(int data) {
+        Node node = head;
+        if (isEmpty()) {
+            System.out.println("List is empty, Deletion can't be done");
+        } else {
+            while (node != null) {
+                if (node.data == data) {
+                    return true;
+                }
+                node = node.nextNode;
+            }
+        }
+        return false;
+    }
+
     public boolean isEmpty() {
         if (head == null) return true;
         return false;

@@ -1,7 +1,5 @@
 package com.linkedList;
 
-import java.util.LinkedList;
-
 public class TestSimpleLinkedList {
 
     public static void main(String[] args) {
@@ -11,9 +9,6 @@ public class TestSimpleLinkedList {
         list.add(30);
         list.add(40);
         list.display();
-        System.out.println(list.size);
-        list.popLast();
-        list.display();
-        System.out.println(list.size);
+        System.out.println(list.contains(30));
     }
 }
