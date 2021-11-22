@@ -7,10 +7,11 @@ public class TestSimpleLinkedList {
         list.add(10);
         list.add(20);
         list.add(40);
-        list.add(50);
+        list.add(30);
         list.display();
-        list.insertAfter(20, 30);
-        System.out.println();
+        System.out.println(list.size());
+        list.remove(10);
         list.display();
+        System.out.println(list.size());
     }
 }
