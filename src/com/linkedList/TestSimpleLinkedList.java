@@ -10,11 +10,10 @@ public class TestSimpleLinkedList {
         list.add(20);
         list.add(30);
         list.add(40);
-        list.addFirst(100);
         list.display();
-        System.out.println();
-        list.pop();
-        list.insertAt(0,100);
+        System.out.println(list.size);
+        list.popLast();
         list.display();
+        System.out.println(list.size);
     }
 }
